@@ -1,0 +1,65 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Ionic + AWS </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit = !edit">
+        <ion-icon
+          slot="icon-only"
+          name="lock-open-outline"
+          *ngIf="edit"
+        ></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="lock-closed-outline"
+          *ngIf="!edit"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3 [hidden]="images.length !== 0" text-center>No Images found!</h3>
+
+  <ion-list>
+    <ion-card *ngFor="let img of images; let i = index">
+      <ion-img [src]="img.url"></ion-img>
+      <ion-button
+        expand="full"
+        color="danger"
+        [style.margin]="0"
+        *ngIf="edit"
+        (click)="deleteImage(i)"
+      >
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab horizontal="right" vertical="bottom">
+    <ion-fab-button (click)="presentActionSheet()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

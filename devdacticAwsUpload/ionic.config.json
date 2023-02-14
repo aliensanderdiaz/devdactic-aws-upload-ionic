@@ -1,0 +1,7 @@
+{
+  "name": "devdacticAwsUpload",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
